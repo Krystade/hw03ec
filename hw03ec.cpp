@@ -1,38 +1,41 @@
 //============================================================================
-// Name        : hw03ec.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
+// Name        : hw03.cpp
+// Author      : Jack Schmid -- CS1C T/Th 3:30-5:50 -- Professor Kath
 // Description : Define Time, ExtTime, and Invoice classes. Instantiate an ExtTime
 // 				 object and an Invoice object. Override << operators for ExtTime
-//				 and Invoice classes and use it to display to the console.
+//				 and Invoice classes and use it to display to the console. C++, Ansi-style
 //============================================================================
 
 #include <iostream>
 using namespace std;
 #include "hw03ec.h"
 
+//Default Time constructor
 Time::Time(){
 	hours = 0;
 	minutes = 0;
 	seconds = 0;
 }
+//Overloaded Time constructor
 Time::Time(int hrs, int min, int sec){
 	hours = hrs;
 	minutes = min;
 	seconds = sec;
 }
 
-
+//Default ExtTime constructor
 ExtTime::ExtTime():Time(){
 	time_zone = PACIFIC;
 }
+//Overloaded ExtTime constructor
 ExtTime::ExtTime(int hrs, int min, int sec, TimeZone tZone):Time(hrs, min, sec){
 	time_zone = tZone;
 }
 
+//Default Invoice constructor
 Invoice::Invoice():purchase_time(){
 }
+//Overloaded Invoice constructor
 Invoice::Invoice(Time pTime):purchase_time(pTime){
 }
 
@@ -44,7 +47,8 @@ int main() {
 	cout << *timeExt << endl << *invoice << endl;
 	return 0;
 }
-
+//Overloaded Time insertion opertator
+//Returns an ostream object that can be used to print the Time object's data using cout 
 ostream& operator<<(ostream& out, const Time&  timeOut){
 	out << "Time: ";
 	if (timeOut.hours < 10)
@@ -61,12 +65,16 @@ ostream& operator<<(ostream& out, const Time&  timeOut){
 	    return out;
 }
 
+//Overloaded ExtTime insertion opertator
+//Returns an ostream object that can be used to print the ExtTime object's data using cout 
 ostream& operator<<(ostream& out, const ExtTime&  timeOut){
 	out << Time(timeOut);
 	out << " Time Zone: " << tZones[timeOut.time_zone];
 	return out;
 }
 
+//Overloaded Invoice insertion opertator
+//Returns an ostream object that can be used to print the Invoice object's data using cout 
 ostream& operator<<(ostream& out, const Invoice&  invoiceOut){
 	out << "Invoice Purchase ";
 	out << invoiceOut.purchase_time;
