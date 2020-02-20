@@ -1,9 +1,7 @@
 //============================================================================
-// Name        : hw03.cpp
+// Name        : hw03ec.cpp
 // Author      : Jack Schmid -- CS1C T/Th 3:30-5:50 -- Professor Kath
-// Description : Define Time, ExtTime, and Invoice classes. Instantiate an ExtTime
-// 				 object and an Invoice object. Override << operators for ExtTime
-//				 and Invoice classes and use it to display to the console. C++, Ansi-style
+// Description : Base Init List, Overloading & Friends. C++, Ansi-style
 //============================================================================
 
 #include <iostream>
